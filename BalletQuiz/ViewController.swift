@@ -82,15 +82,33 @@ class ViewController: UIViewController {
             setQuestion()
         // If there aren't anymore questions then show the final results
         } else {
-            performSegue(withIdentifier: "sgShowResults", sender: nil)
+            performSegue(withIdentifier: "showFinalResults", sender: nil)
         }
+    }
         
+    // Fill in the labels and buttons with text for the current question
+    func setQuestion() {
+        question.text = currentQuestion!.question
+        answer0.setTitle(currentQuestion!.answers[0], for: .normal)
+        answer1.setTitle(currentQuestion!.answers[1], for: .normal)
+        answer2.setTitle(currentQuestion!.answers[2], for: .normal)
+        answer3.setTitle(currentQuestion!.answers[3], for: .normal)
+        progress.text = "\(currentQuestionPos + 1) / \(questions.count)"
+    }   
  
+    // To paass the total number correct (out of how many) results to the Result screen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showFinalResults") {
+            var vc = segue.destination as! ResultsViewController
+            vc.noCorrect = noCorrect
+            vc.total = questions.count
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        currentQuestion = questions[0]
+        setQuestion()
     }
 
     override func didReceiveMemoryWarning() {
