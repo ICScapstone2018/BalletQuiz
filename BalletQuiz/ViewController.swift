@@ -79,15 +79,14 @@ class ViewController: UIViewController {
             loadNextQuestion()
         }
         else {
-           // let wrongAnswer = UIAlertController(title: "Sorry",
-           //                                     message: "Sorry, that was the wrong answer",
-           //                                     preferredStyle: .alert)
-            //wrongAnswer.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: { _ in NSLog("The \"OK\" alert occured.")
-          //  }))
-           // self.present(wrongAnswer, animated: true, completion: nil)
-             loadNextQuestion()
+            let wrongAnswer = UIAlertController(title: "Sorry",
+                                                message: "Sorry, that was the wrong answer",
+                                                preferredStyle: .alert)
+            wrongAnswer.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: { _ in NSLog("The \"OK\" alert occured.")
+                    self.loadNextQuestion()
+            }))
+            self.present(wrongAnswer, animated: true, completion: nil)
         }
-       // loadNextQuestion()
     }
     
     func loadNextQuestion() {
