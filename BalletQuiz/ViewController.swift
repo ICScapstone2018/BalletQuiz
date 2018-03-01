@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var progress: UILabel!
     
+    var numCorrect = 0
+    
     // Actions
     
     // Submit answers
@@ -61,7 +63,7 @@ class ViewController: UIViewController {
         rightAnswer: 3)
     ]
     
-    var currentQuestion = Question?
+    var currentQuestion : Question?
     var currentQuestionPos = 0
     
     var totalCorrect = 0
@@ -100,7 +102,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showFinalResults") {
             var vc = segue.destination as! ResultsViewController
-            vc.noCorrect = noCorrect
+            vc.numCorrect = numCorrect
             vc.total = questions.count
         }
     }

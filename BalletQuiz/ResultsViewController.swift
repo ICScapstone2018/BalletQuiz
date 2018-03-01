@@ -22,7 +22,7 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
  
         // Display the results on the screen
-        finalResultsNumbers.text = "You got \(noCorrect) out of \(total) correct"
+        finalResultsNumbers.text = "You got \(numCorrect) out of \(total) correct"
           
         // Display a happy message
         var title = "Good job, hope you learned something!"
