@@ -38,6 +38,23 @@ class ViewController: UIViewController {
     @IBAction func submitAnswer3(_ sender: Any) {
     }
     
+    struct Question {
+        let question: String
+        let answers: [String]
+        let correctAnswer: Int
+    }
+    
+    var questions: [Question] = [
+    Question(
+        question: "the q",
+        answers: ["hh", "nn", "jj", "nnn"],
+        correctAnswer: 2),
+    Question(
+        question: "the q",
+        answers: ["hh", "nn", "jj", "nnn"],
+        correctAnswer: 2)
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
