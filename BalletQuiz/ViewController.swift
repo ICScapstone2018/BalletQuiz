@@ -60,20 +60,34 @@ class ViewController: UIViewController {
     Question(
         question: "Which of the following is not a ballet jump?",
         answers: ["Assemble", "Pas de Chat", "Grand Jete", "Arabesque"],
-        rightAnswer: 3)
+        rightAnswer: 3),
+    Question(
+        question: "Which of the following is not a material for ballet slippers?",
+        answers: ["Silk", "Fleece", "Canvas", "Cotton"],
+        rightAnswer: 1)
     ]
     
     var currentQuestion : Question?
     var currentQuestionPos = 0
     
     var totalCorrect = 0
-    
+
     // Checks if the answer was right, then goes onto the next question
     func checkAnswer(idx: Int) {
         if(idx == currentQuestion!.rightAnswer) {
             numCorrect += 1
+            loadNextQuestion()
         }
-        loadNextQuestion()
+        else {
+           // let wrongAnswer = UIAlertController(title: "Sorry",
+           //                                     message: "Sorry, that was the wrong answer",
+           //                                     preferredStyle: .alert)
+            //wrongAnswer.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: { _ in NSLog("The \"OK\" alert occured.")
+          //  }))
+           // self.present(wrongAnswer, animated: true, completion: nil)
+             loadNextQuestion()
+        }
+       // loadNextQuestion()
     }
     
     func loadNextQuestion() {
