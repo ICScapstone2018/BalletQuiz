@@ -54,12 +54,12 @@ class ViewController: UIViewController {
     
     var questions: [Question] = [
     Question(
-        question: "the q",
-        answers: ["right answer", "nn", "jj", "nnn"],
+        question: "Which of the following is not a method of ballet?",
+        answers: ["Martha Graham", "Cecchetti", "Vaganova", "Royal Academy of Dance"],
         rightAnswer: 0),
     Question(
-        question: "the q",
-        answers: ["hh", "nn", "jj", "right answer"],
+        question: "Which of the following is not a ballet jump?",
+        answers: ["Assemble", "Pas de Chat", "Grand Jete", "Arabesque"],
         rightAnswer: 3)
     ]
     

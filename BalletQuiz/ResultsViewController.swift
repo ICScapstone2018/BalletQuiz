@@ -17,16 +17,32 @@ class ResultsViewController: UIViewController {
     
     var numCorrect = 0
     var total = 0
+    let randomNum = arc4random_uniform(10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
  
         // Display the results on the screen
         finalResultsNumbers.text = "You got \(numCorrect) out of \(total) correct"
-          
+        
+        var title = "to be determined"
         // Display a happy message
-        var title = "Good job, hope you learned something!"
-        finalResults.text = title
+        if (randomNum < 2) {
+            title = "Good job, hope you learned something!"
+        }
+        else if (randomNum < 4) {
+            title = "Nice work, gold star!"
+        }
+        else if (randomNum < 6) {
+            title = "Just keep learning."
+        }
+        else if (randomNum < 8) {
+            title = "You're the dancing queen"
+        }
+        else {
+            title = "You're the best!"
+        }
+     finalResults.text = title
     }
 
     override func didReceiveMemoryWarning() {
