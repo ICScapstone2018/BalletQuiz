@@ -15,10 +15,18 @@ class ResultsViewController: UIViewController {
     
     @IBOutlet weak var finalResultsNumbers: UILabel!
     
+    var numCorrect = 0
+    var total = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+ 
+        // Display the results on the screen
+        finalResultsNumbers.text = "You got \(noCorrect) out of \(total) correct"
+          
+        // Display a happy message
+        var title = "Good job, hope you learned something!"
+        finalResults.text = title
     }
 
     override func didReceiveMemoryWarning() {
