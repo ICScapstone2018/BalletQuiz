@@ -20,6 +20,12 @@ class FrontViewController: UIViewController {
     // Actions
     
     @IBAction func startGame(_ sender: Any) {
+        loadGame()
+    }
+    
+    func loadGame() {
+        // Load the game screen
+            performSegue(withIdentifier: "showQuiz", sender: nil)
     }
     
     override func viewDidLoad() {
