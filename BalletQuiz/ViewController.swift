@@ -26,34 +26,67 @@ class ViewController: UIViewController {
     
     // Actions
     
+    // Submit answers
     @IBAction func submitAnswer0(_ sender: Any) {
+        checkAnswer(idx: 0)
     }
     
     @IBAction func submitAnswer1(_ sender: Any) {
+        checkAnswer(idx: 1)
     }
     
-    @IBAction func submitAnswer2(_ sender: Any) {
+    @IBAction func submitAnswer2(_ sender: Any) { 
+        checkAnswer(idx: 2)
     }
     
     @IBAction func submitAnswer3(_ sender: Any) {
+        checkAnswer(idx: 3)
     }
     
+    // Sets up the questions and which question to start with
     struct Question {
         let question: String
         let answers: [String]
-        let correctAnswer: Int
+        let rightAnswer: Int
     }
     
     var questions: [Question] = [
     Question(
         question: "the q",
-        answers: ["hh", "nn", "jj", "nnn"],
-        correctAnswer: 2),
+        answers: ["right answer", "nn", "jj", "nnn"],
+        rightAnswer: 0),
     Question(
         question: "the q",
-        answers: ["hh", "nn", "jj", "nnn"],
-        correctAnswer: 2)
+        answers: ["hh", "nn", "jj", "right answer"],
+        rightAnswer: 3)
     ]
+    
+    var currentQuestion = Question?
+    var currentQuestionPos = 0
+    
+    var totalCorrect = 0
+    
+    // Checks if the answer was right, then goes onto the next question
+    func checkAnswer(idx: Int) {
+        if(idx == currentQuestion!.rightAnswer) {
+            numCorrect += 1
+        }
+        loadNextQuestion()
+    }
+    
+    func loadNextQuestion() {
+        // Show the next question
+        if(currentQuestionPos + 1 < questions.count) {
+            currentQuestionPos += 1
+            currentQuestion = questions[currentQuestionPos]
+            setQuestion()
+        // If there aren't anymore questions then show the final results
+        } else {
+            performSegue(withIdentifier: "sgShowResults", sender: nil)
+        }
+        
+ 
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
