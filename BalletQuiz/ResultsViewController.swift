@@ -15,9 +15,17 @@ class ResultsViewController: UIViewController {
     
     @IBOutlet weak var finalResultsNumbers: UILabel!
     
+    @IBOutlet weak var endButton: UIButton!
+    
     var numCorrect = 0
     var total = 0
     let randomNum = arc4random_uniform(10)
+    
+    //Actions
+    
+    @IBAction func restartQuiz(_ sender: Any) {
+        restartGame()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +51,14 @@ class ResultsViewController: UIViewController {
             title = "You're the best!"
         }
      finalResults.text = title
+        endButton.setTitle("Restart Quiz", for: .normal)        
     }
-
+    
+    func restartGame() {
+        // Load the initial screen again
+        performSegue(withIdentifier: "sgReturnToStart", sender: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

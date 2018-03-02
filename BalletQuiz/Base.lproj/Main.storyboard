@@ -135,9 +135,14 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXU-WV-eaR">
                                         <rect key="frame" x="45" y="49" width="146" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.97254901960784312" green="0.88235294117647056" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.56834498219999996" green="0.13528820950000001" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="restartQuiz:" destination="ouM-hF-wV1" eventType="touchUpInside" id="GQI-jE-fed"/>
+                                            <segue destination="Vh4-1C-2q0" kind="show" identifier="sgReturnToStart" id="dlA-V0-LJS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,6 +153,7 @@
                         <viewLayoutGuide key="safeArea" id="tjI-rg-734"/>
                     </view>
                     <connections>
+                        <outlet property="endButton" destination="oXU-WV-eaR" id="p91-Vr-vRT"/>
                         <outlet property="finalResults" destination="Ow0-IM-W47" id="mhz-xk-tOH"/>
                         <outlet property="finalResultsNumbers" destination="MvL-cO-xxF" id="Qh0-UJ-MRj"/>
                     </connections>
