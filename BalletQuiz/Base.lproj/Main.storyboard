@@ -74,9 +74,16 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x / x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My9-jy-usc">
-                                <rect key="frame" x="317" y="20" width="42" height="21"/>
+                                <rect key="frame" x="166" y="626" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOY-JL-fvK">
+                                <rect key="frame" x="265" y="20" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -91,6 +98,7 @@
                         <outlet property="answer3" destination="aOT-S6-CCh" id="EOr-Ov-W9t"/>
                         <outlet property="progress" destination="My9-jy-usc" id="RuS-MZ-vUS"/>
                         <outlet property="question" destination="ZN1-sA-e4S" id="g7W-pb-FXT"/>
+                        <outlet property="score" destination="vOY-JL-fvK" id="Urp-GX-1FY"/>
                         <segue destination="ouM-hF-wV1" kind="show" identifier="showFinalResults" id="YDi-wN-lxR"/>
                     </connections>
                 </viewController>

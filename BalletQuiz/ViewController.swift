@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var progress: UILabel!
     
+    @IBOutlet weak var score: UILabel!
+    
     var numCorrect = 0
     
     // Actions
@@ -114,8 +116,11 @@ class ViewController: UIViewController {
         answer1.setTitle(currentQuestion!.answers[1], for: .normal)
         answer2.setTitle(currentQuestion!.answers[2], for: .normal)
         answer3.setTitle(currentQuestion!.answers[3], for: .normal)
+        
         progress.text = "\(currentQuestionPos + 1) / \(questions.count)"
-    }   
+        
+                score.text = "Score: \(numCorrect)/\(currentQuestionPos)"        
+    }
  
     // To paass the total number correct (out of how many) results to the Result screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -130,6 +135,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         currentQuestion = questions[0]
         setQuestion()
+        score.text = "Score: 0/\(currentQuestionPos)"
     }
 
     override func didReceiveMemoryWarning() {
