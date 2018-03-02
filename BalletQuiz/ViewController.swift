@@ -76,11 +76,17 @@ class ViewController: UIViewController {
     func checkAnswer(idx: Int) {
         if(idx == currentQuestion!.rightAnswer) {
             numCorrect += 1
-            loadNextQuestion()
-        }
+            //loadNextQuestion()
+            let rightAnswer = UIAlertController(title: "Yes!",
+                                                message: "Great job, \(currentQuestion!.answers[idx]) was the correct answer",
+                preferredStyle: .alert)
+            rightAnswer.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: { _ in NSLog("The \"OK\" alert occured.")
+                self.loadNextQuestion()
+            }))
+            self.present(rightAnswer, animated: true, completion: nil)        }
         else {
             let wrongAnswer = UIAlertController(title: "Sorry",
-                                                message: "Sorry, that was the wrong answer",
+                                                message: "Sorry, \(currentQuestion!.answers[idx]) was the wrong answer",
                                                 preferredStyle: .alert)
             wrongAnswer.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: { _ in NSLog("The \"OK\" alert occured.")
                     self.loadNextQuestion()
@@ -114,7 +120,7 @@ class ViewController: UIViewController {
     // To paass the total number correct (out of how many) results to the Result screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showFinalResults") {
-            var vc = segue.destination as! ResultsViewController
+            let vc = segue.destination as! ResultsViewController
             vc.numCorrect = numCorrect
             vc.total = questions.count
         }

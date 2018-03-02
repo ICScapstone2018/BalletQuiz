@@ -31,7 +31,9 @@ class FrontViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        message.text = "Welcome to the ballet quiz, please play the game to learn more about ballet while showing off your prior knowledge. Just tap the button to get started, and then tap your answer to each question!"
+
+        start.setTitle("Start Quiz", for: .normal)
     }
 
     override func didReceiveMemoryWarning() {

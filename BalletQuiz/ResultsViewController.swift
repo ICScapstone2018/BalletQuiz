@@ -28,13 +28,13 @@ class ResultsViewController: UIViewController {
         var title = "to be determined"
         // Display a happy message
         if (randomNum < 2) {
-            title = "Good job, hope you learned something!"
+            title = "Just keep learning."
         }
         else if (randomNum < 4) {
-            title = "Nice work, gold star!"
+            title = "Good job, hope you learned something!"
         }
         else if (randomNum < 6) {
-            title = "Just keep learning."
+            title = "Nice work, gold star!"
         }
         else if (randomNum < 8) {
             title = "You're the dancing queen"
