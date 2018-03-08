@@ -14,23 +14,24 @@ class FrontViewController: UIViewController {
     
     @IBOutlet weak var message: UITextView!
     
-    
     @IBOutlet weak var start: UIButton!
     
     // Actions
     
+    // To call the loadGame() function
     @IBAction func startGame(_ sender: Any) {
         loadGame()
     }
     
+    // So that the game can be unwound from the last View Controller
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) {
           }
-    
+    // Load the game screen View Controller
     func loadGame() {
-        // Load the game screen
             performSegue(withIdentifier: "showQuiz", sender: nil)
     }
     
+    // Load the various UI elements with text
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,16 +44,4 @@ class FrontViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

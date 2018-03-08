@@ -10,36 +10,27 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
-    //Properties  for the various UI elements
+    // Properties  for the various UI elements
     
     @IBOutlet weak var finalResults: UILabel!
     
     @IBOutlet weak var finalResultsNumbers: UILabel!
     
-    
     @IBOutlet weak var button: UIButton!
     
+    // To hold the number of correct answers
     var numCorrect = 0
+    // To hold the total number of questions
     var total = 0
+    // To hold a random integer
     let randomNum = arc4random_uniform(10)
     
-    //Actions
-    
-
-    
-    
-   
-    
-    
+    // Actions to go back to the first screen of app
     @IBAction func backButton(_ sender: Any) {
 performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
-        
     }
     
-    //@IBAction func goBackToOne(_ sender: Any) {
-        //performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
-   // }
-    
+     // To load the various UI elements with text
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -47,7 +38,7 @@ performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         finalResultsNumbers.text = "You got \(numCorrect) out of \(total) correct"
         
         var title = "to be determined"
-        // Display a happy message
+        // Use a random number to display a selected happy message
         if (randomNum < 2) {
             title = "Just keep learning."
         }
@@ -63,30 +54,13 @@ performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         else {
             title = "You're the best!"
         }
-     finalResults.text = title
+       finalResults.text = title
    
        button.setTitle("Restart Quiz", for: .normal)
     }
-    
-    //func restartGame() {
-        // Load the initial screen again
-        //performSegue(withIdentifier: "sgReturnToStart", sender: nil)
-  //  }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

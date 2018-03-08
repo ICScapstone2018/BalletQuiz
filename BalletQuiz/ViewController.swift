@@ -93,11 +93,11 @@ class ViewController: UIViewController {
     var currentQuestion : Question?
     var currentQuestionPos = 0
 
-    // Checks if the answer was right, then goes onto the next question
+    // Checks if the answer was right (gives a point if so),
+    // alerts the user if right or wrong, then goes onto the next question
     func checkAnswer(idx: Int) {
         if(idx == currentQuestion!.rightAnswer) {
             numCorrect += 1
-            //loadNextQuestion()
             let rightAnswer = UIAlertController(title: "Yes!",
                                                 message: "Great job, \(currentQuestion!.answers[idx]) was the correct answer",
                 preferredStyle: .alert)
@@ -116,19 +116,21 @@ class ViewController: UIViewController {
         }
     }
     
+    // To load the next question or results screen as appropriate
     func loadNextQuestion() {
         // Show the next question
         if(currentQuestionPos + 1 < questions.count) {
             currentQuestionPos += 1
             currentQuestion = questions[currentQuestionPos]
             setQuestion()
-        // If there aren't anymore questions then show the final results
+        // If there aren't anymore questions then show the final results screen
         } else {
             performSegue(withIdentifier: "showFinalResults", sender: nil)
         }
     }
         
     // Fill in the labels and buttons with text for the current question
+    // And with the current queston the user is on and their current points
     func setQuestion() {
         question.text = currentQuestion!.question
         answer0.setTitle(currentQuestion!.answers[0], for: .normal)
@@ -138,10 +140,10 @@ class ViewController: UIViewController {
         
         progress.text = "\(currentQuestionPos + 1) / \(questions.count)"
         
-                score.text = "Score: \(numCorrect)/\(currentQuestionPos)"        
+        score.text = "Score: \(numCorrect)/\(currentQuestionPos)"
     }
  
-    // To paass the total number correct (out of how many) results to the Result screen
+    // To pass the total number correct (& out of how many) results to the Result screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showFinalResults") {
             let vc = segue.destination as! ResultsViewController
@@ -150,6 +152,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // To load the UI elements with text (or call functions to do so)
     override func viewDidLoad() {
         super.viewDidLoad()
         currentQuestion = questions[0]
@@ -161,7 +164,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
