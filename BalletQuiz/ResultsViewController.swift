@@ -10,12 +10,14 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
-    //Properties
+    //Properties  for the various UI elements
+    
     @IBOutlet weak var finalResults: UILabel!
     
     @IBOutlet weak var finalResultsNumbers: UILabel!
     
-    @IBOutlet weak var endButton: UIButton!
+    
+    @IBOutlet weak var button: UIButton!
     
     var numCorrect = 0
     var total = 0
@@ -23,9 +25,20 @@ class ResultsViewController: UIViewController {
     
     //Actions
     
-    @IBAction func restartQuiz(_ sender: Any) {
-        restartGame()
+
+    
+    
+   
+    
+    
+    @IBAction func backButton(_ sender: Any) {
+performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+        
     }
+    
+    //@IBAction func goBackToOne(_ sender: Any) {
+        //performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+   // }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +64,14 @@ class ResultsViewController: UIViewController {
             title = "You're the best!"
         }
      finalResults.text = title
-        endButton.setTitle("Restart Quiz", for: .normal)        
+   
+       button.setTitle("Restart Quiz", for: .normal)
     }
     
-    func restartGame() {
+    //func restartGame() {
         // Load the initial screen again
-        performSegue(withIdentifier: "sgReturnToStart", sender: nil)
-    }
+        //performSegue(withIdentifier: "sgReturnToStart", sender: nil)
+  //  }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

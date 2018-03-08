@@ -132,16 +132,15 @@
                                 <rect key="frame" x="67" y="316" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXU-WV-eaR">
-                                        <rect key="frame" x="45" y="49" width="146" height="28"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06O-kP-Pt5">
+                                        <rect key="frame" x="46" y="49" width="151" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.97254901960784312" green="0.88235294117647056" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.97484344244003296" green="0.88427847623825073" blue="0.98829597234725952" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.56834498219999996" green="0.13528820950000001" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.56798899173736572" green="0.17763429880142212" blue="0.82826530933380127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="restartQuiz:" destination="ouM-hF-wV1" eventType="touchUpInside" id="GQI-jE-fed"/>
-                                            <segue destination="Vh4-1C-2q0" kind="show" identifier="sgReturnToStart" id="dlA-V0-LJS"/>
+                                            <action selector="backButton:" destination="ouM-hF-wV1" eventType="touchUpInside" id="uuF-Nh-hTG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -153,12 +152,14 @@
                         <viewLayoutGuide key="safeArea" id="tjI-rg-734"/>
                     </view>
                     <connections>
-                        <outlet property="endButton" destination="oXU-WV-eaR" id="p91-Vr-vRT"/>
+                        <outlet property="button" destination="06O-kP-Pt5" id="up1-Vf-JdT"/>
                         <outlet property="finalResults" destination="Ow0-IM-W47" id="mhz-xk-tOH"/>
                         <outlet property="finalResultsNumbers" destination="MvL-cO-xxF" id="Qh0-UJ-MRj"/>
+                        <segue destination="P7D-zL-u6Y" kind="unwind" identifier="unwindSegueToVC1" unwindAction="unwindToVC1WithSegue:" id="csv-DZ-LKo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdM-Jy-4PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="P7D-zL-u6Y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="853.60000000000002" y="117.39130434782609"/>
         </scene>
@@ -170,7 +171,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e56-ia-WcY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e56-ia-WcY">
                                 <rect key="frame" x="67" y="55" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

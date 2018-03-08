@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //Properties
+    // Properties for the various UI elements
     
     @IBOutlet weak var question: UITextView!
     
@@ -26,11 +26,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var score: UILabel!
     
-    var numCorrect = 0
-    
-    // Actions
-    
-    // Submit answers
+    // Actions to submit answers using the various UI buttons
+    // Calls the checkAnswer function with the button that was pressed
     @IBAction func submitAnswer0(_ sender: Any) {
         checkAnswer(idx: 0)
     }
@@ -47,32 +44,54 @@ class ViewController: UIViewController {
         checkAnswer(idx: 3)
     }
     
-    // Sets up the questions and which question to start with
+    // To hold the number of correct answers as the quiz goes along
+    var numCorrect = 0
+    
+    // Struct that will hold questions, answers, and right answer
     struct Question {
         let question: String
         let answers: [String]
         let rightAnswer: Int
     }
-    
+    // Sets up the questions and which question to start with
     var questions: [Question] = [
     Question(
         question: "Which of the following is not a method of ballet?",
         answers: ["Martha Graham", "Cecchetti", "Vaganova", "Royal Academy of Dance"],
         rightAnswer: 0),
     Question(
-        question: "Which of the following is not a ballet jump?",
+        question: "Which of these is not a ballet jump?",
         answers: ["Assemble", "Pas de Chat", "Grand Jete", "Arabesque"],
         rightAnswer: 3),
     Question(
         question: "Which of the following is not a material for ballet slippers?",
         answers: ["Silk", "Fleece", "Canvas", "Cotton"],
-        rightAnswer: 1)
+        rightAnswer: 1),
+    Question(
+        question: "What might signal a dancer's readiness for pointe work?",
+        answers: ["Soft foot bones", "Weak ankles", "Under age 10", "Strong technique"],
+        rightAnswer: 3),
+    Question(
+        question: "Which of the following is not a name for a member of a ballet company?",
+        answers: ["Principal", "Corps de Ballet", "Grand Master", "Soloist"],
+        rightAnswer: 2),
+    Question(
+        question: "A male ballet dancer might commonly wear?",
+        answers: ["Tutu", "Tights", "Pointe shoes", "Hairpiece"],
+        rightAnswer: 1),
+    Question(
+        question: "Which is not a modern-day classical ballet position?",
+        answers: ["First", "Fifth", "Second", "Sixth"],
+        rightAnswer: 3),
+    Question(
+        question: "Fondu is a term used in ballet, where it means?",
+        answers: ["To melt", "Melted cheese", "Melted chocolate", "To unfold"],
+        rightAnswer: 0)
     ]
     
+    // Sets up which question to start with
     var currentQuestion : Question?
     var currentQuestionPos = 0
-    
-    var totalCorrect = 0
 
     // Checks if the answer was right, then goes onto the next question
     func checkAnswer(idx: Int) {
