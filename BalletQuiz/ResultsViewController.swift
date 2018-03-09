@@ -19,11 +19,9 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
     
     // To hold the number of correct answers
-    var numCorrect = 0
+    var numCorrect: UInt = 0
     // To hold the total number of questions
-    var total = 0
-    // To hold a random integer
-    let randomNum = arc4random_uniform(10)
+    var total: UInt = 0
     
     // Actions to go back to the first screen of app
     @IBAction func backButton(_ sender: Any) {
@@ -38,17 +36,17 @@ performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         finalResultsNumbers.text = "You got \(numCorrect) out of \(total) correct"
         
         var title = "to be determined"
-        // Use a random number to display a selected happy message
-        if (randomNum < 2) {
+        // Use the score (numCorrect) to display appropriate message
+        if (numCorrect < 2) {
             title = "Just keep learning."
         }
-        else if (randomNum < 4) {
+        else if (numCorrect < 4) {
             title = "Good job, hope you learned something!"
         }
-        else if (randomNum < 6) {
+        else if (numCorrect < 6) {
             title = "Nice work, gold star!"
         }
-        else if (randomNum < 8) {
+        else if (numCorrect < 8) {
             title = "You're the dancing queen"
         }
         else {

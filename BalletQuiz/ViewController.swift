@@ -45,13 +45,13 @@ class ViewController: UIViewController {
     }
     
     // To hold the number of correct answers as the quiz goes along
-    var numCorrect = 0
+    var numCorrect: UInt = 0
     
     // Struct that will hold questions, answers, and right answer
     struct Question {
         let question: String
         let answers: [String]
-        let rightAnswer: Int
+        let rightAnswer: UInt
     }
     // Sets up the questions and which question to start with
     var questions: [Question] = [
@@ -147,8 +147,8 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showFinalResults") {
             let vc = segue.destination as! ResultsViewController
-            vc.numCorrect = numCorrect
-            vc.total = questions.count
+            vc.numCorrect = UInt(numCorrect)
+            vc.total = UInt(questions.count)
         }
     }
     
